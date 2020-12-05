@@ -1,0 +1,19 @@
+{
+  "name": "jivoautotests",
+  "version": "1.0.0",
+  "description": "automation study",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chromedriver": "^87.0.2",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "geckodriver": "^1.21.0",
+    "nightwatch": "^1.5.1"
+  }
+}
