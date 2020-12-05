@@ -1,10 +1,10 @@
 module.exports = {
- 
+  
   'Case 1: Check if user can register and login'(browser) {
 
     const jivo = browser.page.jivoApp();
     //test case data all should be correct
-    var email = 'tetetets2234t@mail.com'; 
+    var email = 'tet9s22fff34t@mail.com'; 
     var password = 'hehePassW3ord!!'; 
     var name = 'MochitoAgent';
     var description = 'Always drinking Mochito';
@@ -19,7 +19,7 @@ module.exports = {
       .registrationEmailAndPass(email,password) //enters email and password
       .click('@registrationEulaButton')
       .click('@registrationContinueButton')
-      .waitForElementVisible('@wizardNameInput', 10000, 'Step 2: Enter correct login and password and continue registration')
+      .waitForElementVisible('@wizardNameInput', 10000, 'Step 3: Continue registration')
       .wizardEnterAgentInfo(name,description)
       .click('@wizardNextButton')
       .click('@wizardNextButton')
@@ -27,7 +27,7 @@ module.exports = {
       .click('@wizardNextButton')
       .click('@wizardDownloadLaterButton')
       .click('@wizardCompleteButton')
-      .waitForElementVisible('div[class*="container___"]', 10000, 'Step 3: Complete setup-wizard')
+      .waitForElementVisible('div[class*="container___"]', 10000, 'Step 7: Complete setup-wizard')
       //sql-command example to check?
       .end();
   },
@@ -42,9 +42,10 @@ module.exports = {
       .navigate()
       .waitForElementVisible('@loginButton', 6000, 'Step 1: Open app page')
       .loginEmailAndPass(email, password)
+      .assert.not.visible('[data-qa-id="login-error-message"]', 'Step 2: Enter correct data')
       .click('@loginButton')
       .pause(5000)
-      .waitForElementVisible('[data-qa-id="side-menu-item-settings"]', 6000, 'Step 2: Enter correct data and login')
+      .waitForElementVisible('[data-qa-id="side-menu-item-settings"]', 6000, 'Step 3: Login in app')
       .end();
   },
   'Case 3: Check if user cant login with incorrect data'(browser) {
@@ -60,7 +61,7 @@ module.exports = {
       .loginEmailAndPass(email, password)
       .click('@loginButton')
       .pause(5000)
-      .waitForElementVisible('[data-qa-id="login-error-message"]', 6000, 'Step 2: Enter incorrect data and login')
+      .assert.visible('[data-qa-id="login-error-message"]', 'Step 2: Enter incorrect data')
       .saveScreenshot('tests_output/loginError.png')
       .end();
   }

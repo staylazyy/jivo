@@ -29,17 +29,22 @@ module.exports = {
     registrationEmailAndPass(email, password) {
       return this
         .setValue('@registrationEmailInput', email)
-        .setValue('@registrationPasswordInput', password); 
+        .setValue('@registrationPasswordInput', password)
+        .assert.not.elementPresent('[data-qa-id="error"]', 'Step 2: Enter correct data');
     },
     wizardEnterAgentInfo(name, description){
       return this
         .setValue('@wizardNameInput', name)
-        .setValue('@wizardDescriptionInput', description);
+        .setValue('@wizardDescriptionInput', description)
+        .assert.not.attributeContains('@wizardNameInput', 'class', 'error', 'Step 4: Enter correct user name');
     },
     wizardEnterAgentContacts(url, phone){
       return this
         .setValue('@wizardUrlInput', url)
-        .setValue('@wizardPhoneInput', phone);
-    }
+        .setValue('@wizardPhoneInput', phone)
+        .assert.not.attributeContains('@wizardUrlInput', 'class', 'error', 'Step 5: Enter correct website url')
+        .assert.not.attributeContains('@wizardUrlInput', 'class', 'error', 'Step 6: Enter correct phone number');
+    },
+    
   }]
 };
