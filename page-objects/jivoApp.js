@@ -2,10 +2,10 @@ module.exports = {
   url: 'https://app.jivosite.com',
   elements: {
     //registration page
-    emailInput:'[data-qa-id="signup-account-email-input"]',
-    passwordInput:'[data-qa-id="signup-account-password-input"]',
+    registrationEmailInput:'[data-qa-id="signup-account-email-input"]',
+    registrationPasswordInput:'[data-qa-id="signup-account-password-input"]',
     registerButton:'div[class*="regAccount"] span.link',
-    eulaButton:'[data-qa-id="signup-eula-agree"] label[for]',
+    registrationEulaButton:'[data-qa-id="signup-eula-agree"] label[for]',
     registrationContinueButton:'[data-qa-id="signup-account-next"]',
     //setup-wizard
     wizardNameInput:'input[data-qa-id="signup-widget-agent-name-input"]',
@@ -14,13 +14,22 @@ module.exports = {
     wizardUrlInput: '[data-qa-id="signup-account-site-url-input"]',
     wizardPhoneInput: '[data-qa-id="signup-account-phone-input"]',
     wizardDownloadLaterButton: '[data-qa-id="signup-download-later"]',
-    wizardCompleteButton: '[data-qa-id="signup-wizard-start"]'
+    wizardCompleteButton: '[data-qa-id="signup-wizard-start"]',
+    //login page
+    loginEmailInput: '[data-qa-id="login-email-input"]',
+    loginPasswordInput: '[data-qa-id="login-password-input"]',
+    loginButton: '[data-qa-id="login-submit-button"]'
   },
   commands: [{
-    enterEmailAndPass(email, password) {
+    loginEmailAndPass(email,password) {
       return this
-        .setValue('@emailInput', email)
-        .setValue('@passwordInput', password); 
+        .setValue('@loginEmailInput', email)
+        .setValue('@loginPasswordInput', password);
+    },
+    registrationEmailAndPass(email, password) {
+      return this
+        .setValue('@registrationEmailInput', email)
+        .setValue('@registrationPasswordInput', password); 
     },
     wizardEnterAgentInfo(name, description){
       return this
