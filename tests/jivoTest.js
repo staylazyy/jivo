@@ -8,7 +8,7 @@ module.exports = {
       .waitForElementVisible('button[data-qa-id="login-submit-button"]', 6000, 'Step 1: Open app page')
       .click('@registerButton')
       .pause(3000)
-      .enterEmailAndPass('tetetetst@mail.com', 'password!!AA123')//pass email and password in parametrs
+      .enterEmailAndPass('tetetets34t@mail.com', 'password!!AA123')//pass correct email and password in parametrs
       .click('@eulaButton')
       .click('@registrationContinueButton')
       .waitForElementVisible('@wizardNameInput', 10000, 'Step 2: Enter correct login and password and continue registration')
@@ -20,5 +20,6 @@ module.exports = {
       .click('@wizardDownloadLaterButton')
       .click('@wizardCompleteButton')
       .waitForElementVisible('div[class*="container___"]', 10000, 'Step 3: Complete setup-wizard');
+    //sql-command example to check?
   }
 };
