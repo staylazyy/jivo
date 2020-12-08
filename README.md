@@ -10,3 +10,8 @@ cd jivo
 ```
 npm install
 ```
+
+### run jivo test
+```
+npm test
+```
